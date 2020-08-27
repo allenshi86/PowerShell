@@ -13,6 +13,6 @@ $cred =  New-Object System.Management.Automation.PSCredential($username,$passwor
 
 $body = Get-ADUser -SearchBase $oupath -Properties * -Filter {BadLogonCount -ge 15 -and Enabled -eq "True"} | Format-Table DisplayName,samAccountName,AccountLockoutTime,BadLogonCount -AutoSize  | Out-String
 
-Send-MailMessage  -From 'wechat_it@132.com' -To  'user1@132.com','user1@132.com','user3@132.com' -Subject "AD账号监测-认证失败次数【$starttime-$nowtime】 "  -SmtpServer 'mail.132.com' -Body $body -Credential $cred -Encoding 'utf8'
+Send-MailMessage  -From 'wechat_it@132.com' -To  'user1@132.com','user2@132.com','user3@132.com' -Subject "AD账号监测-认证失败次数【$starttime-$nowtime】 "  -SmtpServer 'mail.132.com' -Body $body -Credential $cred -Encoding 'utf8'
  
  
